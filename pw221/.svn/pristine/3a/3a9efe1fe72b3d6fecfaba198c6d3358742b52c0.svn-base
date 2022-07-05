@@ -1,0 +1,48 @@
+Korrektur Übungsblatt 7
+=======================
+
+Aufgabe 7.1
+-----------
+super
+(a) (3/3)
+(b) (7/7)
+10/10
+
+
+Aufgabe 7.2
+-----------
+(a) (2.5/3)
+in eurer conclusion schreibt ihr:
+(d-1)/2 = ((d-1) / 2) - 1 = ((d + 1) / 2) - 1.
+((d-1) / 2) - 1 ist ungleich zu den anderen beiden Termen. (-0.5)
+(b) (3/3)
+(c) (4/4)
+9.5/10
+
++---- ../gruppe.txt ---
+| af231 mi84 pw221
++----------------------
+
+
+Anmerkungen
+-----------
+Bei Fragen zur Korrektur dürft ihr mir gerne eine Mail schreiben:
+<pollittf@informatik.uni-freiburg.de>
+Bei allgemeinen Fragen zu Übungsblättern und Vorlesung benutzt bitte das zulip Forum
+
+Beachtet bitte die Richtlinien zur Abgabe der Übungsblätter auf der Vorlesungswebsite
+<https://ac.informatik.uni-freiburg.de/teaching/ss_22/ad-lecture.php>
+
+Wenn ihr in einer Gruppe abgebt, schreibt bitte *alle* Kürzel aus eurer Gruppe
+in die erfahrungen.txt oder anderweitig gut ersichtlich in eure Abgabe
+
+Bei Programmieraufgaben achtet bitte auf die im Übungsblatt angegebenen
+Dateinamen. Das erleichtert meine Korrektur.
+
+Bei Theorieaufgaben kann es sein, dass im feedback nur die Punkte eingetragen sind.
+Dann gibt es allfällige Anmerkungen im Unterordner zum entsprechenden Übungsblatt.
+
+
+Gesamtpunktzahl
+---------------
+19.5/20

@@ -1,0 +1,34 @@
+Tree: 
+	A tree is an acyclic and connected 
+	graph
+
+Path
+	A path in a graph (V,E) is a sequence of vertices 〈v0,v1,...,vn〉, where (vj →vj+1)∈E for j=0,...,n−1.
+
+Cycle: 
+	If v0 = vn in a path, then the path is called a cycle. 
+
+Acyclic:
+	A graph is called acyclic if it contains no cycles.
+
+ Connected:
+ 	A graph is connected if, for every pair u, v of vertices, there exists a path from u to v.
+
+ST: 
+	Of a Graph G, a spanning tree is (1) a minimal connected subgraph (i.e. removing any edge disconnects it) and (2) a maximal acyclic subgraph (i.e. adding any edge creates a cycle)
+
+
+MST:
+	minimum (weight) spanning tree (MST) problem is given an connected undirected graph G = (V, E), find a spanning tree of minimum weight (i.e. sum of the weights of the edges). That is, find a spanning tree T that minimizes w(T) = Sigma _subscript:e ∈ E(T)w_sub:e
+
+
+Cut (edges): 
+	A cut(S, V\S) of G = (V,E) is a partition of vertices of V.
+
+Edge crossing a cut:
+	An edge (u, v) ∈ E crosses the cut(S, V \ S) if one of its end point is in the set S and the other one in the set (V \ S).
+
+Cut respecting A:
+	A cut (S, V \ S) respects the set A if none of the edges of A crosses the cut.
+Light edge:
+	An edge which crosses the cut and which has the minimum cost of all such edges.

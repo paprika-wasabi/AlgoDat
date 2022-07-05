@@ -1,0 +1,58 @@
+Korrektur Übungsblatt 6
+=======================
+
+Aufgabe 6.1
+-----------
+(a) (3.5/4)
+Wenn man versucht ein element zu inserten, was es schon gibt, gibt es eine
+Endlosschleife (-0.5)
+(in dem approach von af wäre das nicht passiert)
+(b) (3.5/4)
+wenn ihr die Wörter in order ins retarray hinzufügt, sind sie hinterher auch
+sortiert (erst linker Teilbaum, dann node.key, dann rechter Teilbaum) (-0.5)
+(c) (0/2)
+7/10
+
+
+Aufgabe 6.2
+-----------
+Laufzeitanalyse beinhaltet nicht nur das angeben der Laufzeit, sondern auch 
+mindestens eine ausführliche Erklärung, am besten einen Beweis. In der Klausur
+wird dies vermutlich strenger korrigiert als hier.
+(a) (2/2)
+gut.
+(b) (0/4)
+nicht das was in der Aufgabe gefragt war. Euer algorithmus berechnet die Tiefe
+des kleinsten elements. (und ist unabhängig von k, weswegen die beschreibung
+und laufzeit analyse keinen sinn ergeben.
+(c) (3.5/4)
+Laufzeit unbegründet (-0.5)
+5.5/10
+
++---- ../gruppe.txt ---
+| af231 mi84 pw221
++----------------------
+
+
+Anmerkungen
+-----------
+Bei Fragen zur Korrektur dürft ihr mir gerne eine Mail schreiben:
+<pollittf@informatik.uni-freiburg.de>
+Bei allgemeinen Fragen zu Übungsblättern und Vorlesung benutzt bitte das zulip Forum
+
+Beachtet bitte die Richtlinien zur Abgabe der Übungsblätter auf der Vorlesungswebsite
+<https://ac.informatik.uni-freiburg.de/teaching/ss_22/ad-lecture.php>
+
+Wenn ihr in einer Gruppe abgebt, schreibt bitte *alle* Kürzel aus eurer Gruppe
+in die erfahrungen.txt oder anderweitig gut ersichtlich in eure Abgabe
+
+Bei Programmieraufgaben achtet bitte auf die im Übungsblatt angegebenen
+Dateinamen. Das erleichtert meine Korrektur.
+
+Bei Theorieaufgaben kann es sein, dass im feedback nur die Punkte eingetragen sind.
+Dann gibt es allfällige Anmerkungen im Unterordner zum entsprechenden Übungsblatt.
+
+
+Gesamtpunktzahl
+---------------
+12.5/20

@@ -1,0 +1,39 @@
+Korrektur Übungsblatt 3
+=======================
+
+Aufgabe 3.1
+-----------
+Gut.
+7/7
+
+
+Aufgabe 3.2
+-----------
+(a) ihr habt den natürlichen logarithmus statt den logarithmus zur basis 10 genommen (-1)
+und als k beim Aufruf von BucketSort jeweils k statt 10 (-1)
+(b) eure Laufzeiten sehe wegen dem Fehler in (a) anders aus als sie sollten.
+BucketSort wächst linear in k. Bei RadixSort kann man BucketSort mit konstantem k
+aufrufen, muss dies aber log(k) mal tun.
+(c) die Laufzeit von radixsort ist O(n log k) -> siehe musterlösung (-1.5)
+9.5.5/13
+
+
+Anmerkungen
+-----------
+Bei Fragen zur Korrektur dürft ihr mir gerne eine Mail schreiben:
+<pollittf@informatik.uni-freiburg.de>
+Bei allgemeinen Fragen zu Übungsblättern und Vorlesung benutzt bitte das zulip Forum
+
+Beachtet bitte die Richtlinien zur Abgabe der Übungsblätter auf der Vorlesungswebsite
+<https://ac.informatik.uni-freiburg.de/teaching/ss_22/ad-lecture.php>
+
+Wenn ihr in einer Gruppe abgebt, schreibt bitte *alle* Kürzel aus eurer Gruppe
+in die erfahrungen.txt oder anderweitig gut ersichtlich in eure Abgabe
+
+Bei Programmieraufgaben achtet bitte auf die im Übungsblatt angegebenen
+Dateinamen. Das erleichtert meine Korrektur.
+
+
+Gesamtpunktzahl
+---------------
+16.5/20                     

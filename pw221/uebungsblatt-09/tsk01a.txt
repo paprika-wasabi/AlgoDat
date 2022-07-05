@@ -1,0 +1,30 @@
+Version 1
+// 1.a 
+// Let G be an arbitrary connected graph. 
+// 
+// Assuming to the contrary, G has two minimum spanning trees (MST): T and T'. 
+// 
+// Let e and e' be the least-weight (syn.: minimum-) edge contained in exactly one of the trees. B
+// 
+// Assume e ∈ T. Since e ∉ T′, the subgraph T' ∪ {e} necessarily contains a cycle. 
+// Since T is a tree, at least one of the edges in the cycle is not in T. 
+// Let e′ be such an edge.  T′ = (T′ ∪ e)\e′ is spanning tree. Since e′ is in exactly one of T and T′, and e has the least weight among such edges, it follows that w(e) < w(e′). Thus, w(T ′′) = w(T ′) + w(e) − w(e′) < w(T ′). This is a contradiction since T′ has minimum weight. ☐
+
+
+###
+1.a' (quasi final)
+Let G be an arbitrary connected graph with two minimum spanning trees (MST) T and T'. 
+
+If G has two distinct MST, then G must have two edges which have the same weight. It must be proven that some pair of edges in G have the same weight.
+
+T and T' must contain an edge that the other tree omits. 
+
+Let e and e' be the least-weight edges in the two T/T' and T'/T respectively. Assume w(e) ≤ w(e')
+Since e ∉ T′, the subgraph T' ∪ {e} contains exactly one cycle C passing through the edge e. 
+Let e'' be any edge of this cycle that is not in T.
+At least one such edge must exist, because T is a tree.  
+Since e ∊ T, then e'' != e. Hence e'' ∊ T' \ T. It follows that w(e'') ≥ w(e') ≥ w(e).
+
+Consider the spanning tree T'' = T' +  -e''. 
+We have then w(T'') = w(T') + w(e) - w(e'') ≤  w(T'). 
+T' is, however, a MST, so w(T'') = w(T'); in other words, T'' is also a MST. In conclusion, w(e) = w(e''). ☐

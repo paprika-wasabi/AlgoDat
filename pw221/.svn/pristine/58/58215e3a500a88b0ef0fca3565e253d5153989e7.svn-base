@@ -1,0 +1,42 @@
+//  Copyright 2022
+//  erfahrungen.txt
+//  AlgoDat
+//
+//  Created by Paramie Willmann on 17.05.22.
+//
+"
+af231
+mi84
+pw221
+"
+
+b.)
+The Runtime for RadixSort is longer than BucketSort, 
+because RadixSort must iterate through the whole array n times. 
+n is determined by the longest digit in the array. 
+For example, if one of the numbers in the array has 4 digits, 
+then it will execute BucketSort 4 times. Thus,  
+BucketSort is faster than RadixSort.
+
+c.) State the asymtotic running time (ART) for Bucketsort (BSO) as well as for Radixsort(RSO), depending on n and k. Justify your answer. 
+
+ART for BSO: 
+Our implementation of the BSO algorithm consits of three loops (L): 
+
+(L1) it creates k many Buckets, 
+(L2) queues each element, 
+(L3) sorts and unifies the buckets. 
+
+L1 increases the complexity by + k, for it repeats this loop by k times. 
+As for the remaining Ls, both L2 and L3  are repeated maximally n times. 
+Thus, their combination may be expressed in a function of the following form:
+    f(n) = 2n + k , which is an element of O(n + k). 
+
+
+ART for RSO: 
+RSO sorts each digit in the given array by using BSO. Therefore, 
+the complexity for sorting each digit is same as that of BSO. 
+
+However, RSO also repeats itself for each digit. 
+Thus, the time complexity of the whole RSO algorithm is O((n + k)*d), 
+where d is the maximum number of digits.

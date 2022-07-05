@@ -1,0 +1,230 @@
+###############################################################################
+# University of Freiburg                                                      #          
+# Summer Semester 2022                                                        #      
+# Course: Algorithms and Data Structures                                      #                          
+# Exercise Sheet 07                                                           #  
+# Group members: af231, mi84, pw221                                           #                  
+###############################################################################
+
+-------------------------------------------------------------------------------
+### Experiences
+-------------------------------------------------------------------------------
+
+---------
+# Task 1:   Red-Black Trees (RBT)
+---------
+
+## (a) Determining RBT 
+
+    RBT-Properties (Syn: Rules, Conditions) [1,2]:
+
+        (1) Nodes are either (R) or black (B).
+        (2) The root is B.
+        (3) Leaves (NIL) are B.
+        (4) Every R-Node has a B-Parent [3]
+        (4a) If n is a R-Node, then both children are B. <==> A red node does not have a red child.
+        (5) All simple paths from any node n to a descendant leaf contain the same number of B-Nodes = black-height(n) –Color of n is not counted. 
+
+    In this task, B- as well as R-Node will be represented in the following way: 
+	
+		(n)	is a B-Node
+		((n'))	is a R-Node
+
+
+### (a.1)     (8)
+             /   \
+         ((5))   (NIL)
+          / \            
+      (NIL) (NIL)   
+
+    Yes, a.1 is a RBT. Justification: All RBT-Properties are fulfilled.
+    
+### (a.2)      (9)
+             /     \
+           (8)      (6)
+          /  \      /  \
+      (NIL) (NIL)(NIL) (NIL)
+    
+    No, a.2 is a RBT. Justification: All RBT-Properties are fulfilled, except it is not a BST and any RBT must be a BST. 
+    
+### (a.3)      (6)
+             /     \
+          (4)      ((7))
+          / \       /  \
+      (NIL) (NIL)(NIL)(NIL)
+      
+    No, a.3. is not a RBT. Justification: For every NIL-node the number of B-nodes is not equal.
+    E.g. Any simple path from node (6) to any leaf passing through node (4) 
+     and any simple path from that same node to any leaf passing through node ((7)) differs in the amount of black nodes.
+
+ ## (b) 
+ 
+  Procedure: 
+    (1) BST-Operation ((insert(), delete()))
+    (2) Change Colors
+    (3) Restructuring of pointers (links) via rotations
+    (4) Check BST-Properties Fulfillment 
+
+  #### insert(8):
+
+      Step 1: 
+                        (6)                                                  (6)
+                      /      \                                             /      \ 
+                  ((4))       (7)                                      ((4))       (7)
+                  /   \        /  \           insert(8)               /   \        /   \
+              (1)     (5)  (NIL) ((9))          =>                (1)     (5)  (NIL)  ((9))
+              / \     /  \                                        / \     /  \         /  \
+          (NIL) ((3))(NIL) (NIL)                              (NIL) ((3))(NIL) (NIL)  ((8)) (NIL)
+                /  \                                                 /  \             /  \   
+            (NIL) (NIL)                                          (NIL) (NIL)      (NIL) (NIL)
+
+      Then we will put two nill nodes after 8.
+      Then we will rebalance the red-blackness of the tree. 
+
+      Step 2:                   
+                        (6)                                                   (6)
+                      /      \                                              /      \ 
+                  ((4))       (7)                                       ((4))        (7)
+                  /   \        /  \           right-rotate(9,8)        /   \        /   \
+              (1)     (5)  (NIL) ((9))                =>            (1)     (5)  (NIL)  ((8))
+             / \     /  \         /  \                              / \     /  \         /  \
+          (NIL)((3))(NIL)(NIL)  ((8)) (NIL)                    (NIL) ((3))(NIL)(NIL) (NIL) ((9))
+                /  \            / \                                   /  \                  /  \   
+             (NIL) (NIL)     (NIL)(NIL)                           (NIL) (NIL)          (NIL) (NIL)
+
+      Step 3:                   
+                        (6)                                                     (6)
+                      /      \                                              /          \ 
+                  ((4))       (7)                                      ((4))          ((8))
+                  /   \        /  \           left-rotate(8,7)          /    \          /   \
+              (1)     (5)  (NIL) ((9))                =>              (1)    (5)      (7)   ((9))
+             / \     /  \         /  \                               /  \     /  \     / \      / \ 
+          (NIL)((3))(NIL)(NIL)  ((8)) (NIL)                      (NIL)((3))(NIL)(NIL) (NIL)(NIL)(NIL)(NIL)
+                /  \             / \                                   /  \                  
+             (NIL) (NIL)     (NIL) (NIL)                            (NIL) (NIL)          
+
+      Step 4:                   
+                                 
+                          (6)                                                   (6)
+                        /      \                                            /          \ 
+                    ((4))      ((8))                                      ((4))          (8)
+                    /    \      /   \        Changing Colors (7 & 8)    /     \          /   \
+                (1)    (5)    (7)   ((9))            =>              (1)    (5)      ((7))  ((9))
+              /  \     /  \   / \      / \                           /  \     /  \     / \      / \ 
+        (NIL)((3))(NIL)(NIL) (NIL)(NIL)(NIL)(NIL)                   (NIL)((3))(NIL)(NIL)(NIL)(NIL)(NIL)(NIL)
+              /  \                                                        /  \                  
+          (NIL) (NIL)                                                  (NIL) (NIL)       
+
+
+
+  #### delete(5): 
+
+      Step 1: 
+                        (6)                                                      (6)
+                    /         \                                              /         \
+                ((4))          (8)                                         ((4))        (8)
+                /   \          /   \                 delete(5)             /   \          /   \
+              (1)  (5)       ((7)) ((9))                =>               (1)  (NIL)       ((7)) ((9))
+             /  \   / \       /  \   /  \                                /  \              /  \   /  \ 
+          (NIL)((3))(NIL)(NIL) (NIL)(NIL)(NIL)(NIL)                   (NIL)((3))       (NIL)(NIL)(NIL)(NIL)
+                /  \                                                        /  \ 
+              (NIL)(NIL)                                                  (NIL)(NIL)
+
+      Step 2:
+                        (6)                                                       (6)
+                    /         \                                               /        \
+                ((4))          (8)                                          ((4))       (8)
+                /   \          /   \               left-rotate(3,1)         /   \       /   \
+              (1)   (NIL)      ((7)) ((9))               =>              ((3))  (NIL)  ((7)) ((9))
+             /  \              /  \   /  \                               /   \          /  \   /  \ 
+          (NIL)((3))        (NIL)(NIL)(NIL)(NIL)                      (1)  (NIL)     (NIL)(NIL)(NIL)(NIL)
+                /  \                                                  /  \ 
+              (NIL)(NIL)                                            (NIL)(NIL)
+
+      Step 3:
+                         (6)                                                        (6)                    
+                     /        \                                                   /       \                     
+                   ((4))       (8)                                            ((4))        (8)                     
+                   /   \       /   \           Changing Colors (1 & 3)        /   \       /     \           
+                ((3))  (NIL)  ((7)) ((9))               =>                 (3)  (NIL)   ((7))   ((9))                       
+                /   \          /  \   /  \                                 /   \         /  \     /  \                       
+             (1)  (NIL)     (NIL)(NIL)(NIL)(NIL)                        ((1))  (NIL)   (NIL)(NIL)(NIL)(NIL)                      
+             /  \                                                       /  \                               
+           (NIL)(NIL)                                                 (NIL)(NIL)                                
+
+      Step 4: 
+                         (6)                                                        (6)                    
+                     /        \                                                 /        \                     
+                   ((4))       (8)                                            (3)         (8)                     
+                   /   \       /   \           right-rotate(3,4)             /   \        /   \                   
+                (3)  (NIL)  ((7)) ((9))               =>                 ((1))  ((4))    ((7)) ((9))                       
+                /   \         /  \   /  \                                / \    / \      /  \   /  \                       
+             ((1))  (NIL)  (NIL)(NIL)(NIL)(NIL)                       (NIL)(NIL)(NIL) (NIL)(NIL)(NIL)(NIL)                     
+             /  \                                                                                    
+           (NIL)(NIL)                                                      
+
+      Step 5: 
+                         (6)                                                          (6)                    
+                     /        \                                                   /         \                     
+                   (3)         (8)                                            ((3))           (8)                     
+                 /   \        /   \            Changing Colors (1,3 & 4)      /   \        /      \                   
+            ((1))  ((4))    ((7)) ((9))                 =>                 (1)    (4)    ((7))    ((9))                       
+              / \    / \      /  \   /  \                                  / \    / \     /  \    /  \                       
+           (NIL)(NIL)(NIL) (NIL)(NIL)(NIL)(NIL)                          (NIL)(NIL)(NIL)(NIL)(NIL)(NIL)(NIL)                     
+                                                                                                 
+                                                                       
+
+---------
+# Task 2:   AVL-Trees
+---------
+
+## (a) 
+  Proposition: A AVL-Tree of depth d is filled completely up to depth d/2.
+              (A binary tree is filled completely up to depth d´ if it contains for all x <= d´ exactly 2**x nodes of depth x.
+depth x.)
+  Proof:
+      we define d as depth of AVL and d' as d/2.
+      a condition muss be fulfilled as proposition mentioned.
+
+      Base Case: 
+        If T is a non-empty AVL-Tree, then T is completely filled up to depth d/2 in the following cases: 
+          if h = 0, then D(h) = 0, so that  d/2 = 0
+          if h = 1, then D(h) = 1, so that  d/2 = 0
+
+      Inductive Step: 
+        If both base cases (h =0 or h = 1) are completely filled trees, then this should hold for a AVL-Tree of depth d + 1  
+        
+        Let T be a AVL-Tree with depth d + 1, and Tl as well as Tr its left and right subtrees. 
+
+        Since T is a AVL-Tree, then either Tl or Tr has a depth of d. 
+        Let be Tl the subtree with depth of d. 
+        Then Tr has a dept of d-1.
+
+      Inductive Hypothesis:
+        Whereas Tl is would be completely filled up to depth d/2, Tr would be completely filled up to depth  (d-1)/2 .
+
+      Conclusion: 
+            Therefore, both Tl and Tr would be completely filled up to depth (d-1)/2  =  ((d-1) / 2) - 1  = ((d + 1) / 2) - 1. 
+            Thus, T is completely filled up to depth (d + 1)/2
+
+## (b)
+
+  Equation expressing a recursive function for finding N(h) (minimum number of nodes possible in an AVL-Tree with height h): 
+
+    N(h) = N(h-1) + N(h-2) + 1
+
+  N(h)-Base Cases:
+      N(0) = 1
+      N(1) = 2
+
+
+## (c)
+for the proof:
+
+
+
+Literature: 
+    [1] Kuhn, F. (2022). Algorithmen und Datenstrukturen. Binäre Suchbäume [Vorlesungsfolien] Universität Freiburg. URL: https://ac.informatik.uni-freiburg.de/teaching/ss_22/ad_lecture/slides/AD_Vorlesung07.pdf
+    [2] Cormen, T. H., Leiserson, C. E., & Rivest, R. L. (2022). Introduction to algorithms. MIT Press ; McGraw-Hill. 
+    [3] Demaine, E. & Leiserson, C. (2005). Introduction to Algorithms. Lecture 10. URL: https://youtu.be/O3hI9FdxFOM
+    

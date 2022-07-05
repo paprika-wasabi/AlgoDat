@@ -1,0 +1,246 @@
+###############################################################################
+# University of Freiburg                                                      #          
+# Summer Semester 2022                                                        #      
+# Course: Algorithms and Datastructures                                       #                          
+# Exercise Sheet 06                                                           #  
+# Groupmembers: af231, mi84, pw221                                            #                  
+###############################################################################
+
+
+### Erfahrungen (Experiences)
+
+
+
+# Task 1
+
+## (a)
+
+    ### MI's approach: 
+
+        def insert(self, x):
+            if self.root is None:
+                self.root = TreeElement(x)
+                return self.root
+            else:
+                currNode = self.root
+                while currNode is not None: 
+                    # if x is smaller than node place it to the left and call the function again
+                    if x < currNode.key:
+                        if currNode.left is None:
+                            currNode.left = TreeElement(x, currNode)
+                            return currNode.left
+                        # TODO: 
+                        else:
+                            currNode = currNode.left
+
+                    # if x is bigger than node place it to the right and call the function again
+                    else:
+                        if x > currNode.key:
+                            if currNode.right is None:
+                                currNode.right = TreeElement(x, currNode)
+                                return currNode.right
+                            # TODO:
+                            else:
+                                currNode = currNode.right
+    
+   ### AF's approach: 
+
+        def insert(self, key):
+            if self.root is None:
+                self.root = self.create_node(key, None, None, None)
+                return
+            current = self.root
+            while current is not None:
+                if current.key == key:
+                    return
+                elif current.key > key:
+                    if current.left is None:
+                        current.left = self.create_node(key, None, None, current)
+                        return
+                    else:
+                        current = current.left
+                elif current.key < key:
+                    if current.right is None:
+                        current.right = self.create_node(key, None, None, current)
+                        return
+                    else:
+                        current = current.right
+
+    ### PW's codereview:
+    def insert(self, x):
+        '''
+            inserts a given key into the binary search tree
+            Parameters:
+                x - comparable key to insert
+        '''
+        if self.root is None:
+            self.root = TreeElement(x)
+            return None
+        else:
+            currentnode = self.root
+            while currentnode is not None:
+                # if currNode is emty leaf then leaf is x.
+                if x < currentnode.key:
+                    if currentnode.left is None:
+                        currentnode.left = TreeElement(x, currentnode)
+                        return None
+                    # else move to next left leaf.
+                    else:
+                        currentnode = currentnode.left
+                else:
+                    # if currNode is emty leaf then leaf is x.
+                    if x > currentnode.key:
+                        if currentnode.right is None:
+                            currentnode.right = TreeElement(x, currentnode)
+                            return None
+                        # else move to next right leaf.
+                        else:
+                            currentnode = currentnode.right
+        return None
+
+## (b)
+    ### MI's approach: 
+        def getrange(self, xmin, xmax):
+            retarray = []
+            def traverse(node):
+                if node is None:
+                    return retarray
+                if xmin <= node.key < xmax:
+                    retarray.append(node.key)
+                traverse(node.left)
+                traverse(node.right)
+            traverse(self.root)
+            return retarray
+    
+
+    ### AF's approach: 
+        def getrange(self, xmin, xmax):
+            assert xmin <= xmax
+            queue = []
+            result = []
+            queue.append(self.root)
+            while len(queue) > 0:
+                node = queue[0]
+                del queue[0]
+                if node.get_key() <xmin:
+                    queue.append(node.get_right())
+                elif node.get_key() >=xmin and node.get_key() <=xmax:
+                    result.append(node.get_key())
+                    queue.append(node.get_left())
+                    queue.append(node.get_right())
+                else:
+                    queue.append(node.get_left())
+            return result
+
+## (c)
+     n.a.
+
+
+
+# Task 2 
+NB: We follow some of the recommendation made in [2] for implementing algorithms in pseudocode.
+
+## (a) 
+    Implementation (in pseudocode): 
+        // Returns the depth of the BST
+        getDepth(BST root) 
+            if (root is None) {
+                return 0
+            else: 
+                left = getDepth(root.left)
+                right = getDepth(root.right)
+                return max(left, right) + 1;
+        
+            
+    Description: 
+        The maximum depth of a BST may be calculate by calling all left and right children from the root recursively.
+        In order to do this a base case ought to be define. If the recursive function hits the None case, in which case 
+        there are no more children, then it will return 0. Having calculated the depth of SubBST, 
+        the function will take the maximum number among left and right and then add 1 to it. 
+        After all calculations are done, the function will return the depth of ours Binary Search Tree (BST).
+
+    Complexity Analysis:
+        The function must visit both left and right child. 
+        As a consequence, it has to visit all elements in the BST.
+        E.g. letting n be the number of Nodes in the BST is n. 
+        Thus the time complexity would be O(n).
+
+## (b)
+    Implementation (in pseudocode):
+
+        // Returns a list with the smallest key 
+        getMin(BST root)
+            if (root is None)
+                return 0
+            else:
+                left = getMin(root.left)
+                return left + 1;
+            
+
+    Description: 
+        Since a feature of the BST data structure is that the left child of a node is always smaller than right child, 
+        then it is not necessary to calculate any BubBST from the right side.
+
+    Complexity Analysis:
+        The elements in K should start from the very most left side of the BST. 
+
+        However, its complexity depends heavily on the size of k and the depth or height of the BST. 
+
+        Three time complexity cases may be differentiated [1]: 
+        (1) The worst case is 𝚹(log n) 
+        (2) Best case time complexity is 𝚹(n), If the BST is a linear chain of n nodes.
+        (3) The average case time complexity is 𝚹(n). 
+
+## (c)
+
+    Implementation (in pseudocode): 
+
+        // Returns the element associated with key, if the key is in the BST;
+        // Otherwise, it return the nearest smallest and biggest element w.r.t that key. 
+        (BST bst, any key)
+            if search_Key(bst, key):
+                return key
+            else:
+                get_u_w(bst, key)
+                    if key < getMin():
+                        return (None, getMin(bst))
+                    elif key > getMax(bst):
+                        return (getMax(bst), None)
+                    else:
+                    u_done = false
+                    w_done = false
+                    while not u_done and w_done :
+                        if (Node is not None):
+                            get_u_w(bst.left)
+                            visitNode()
+                                if currentNode.key < key:
+                                    currentNode = nextNode
+                                    u = currentNode
+                                    u_done = true
+                                if currentNode.key > key:
+                                    w = currentNode
+                                    w_done = true
+                            get_u_w(bst.right)
+                    return (u,w)
+
+    Description:
+        Arguments: BST, x: key
+        - Two previous function should have been defined, namely: getMin() and getMax()
+        - The function checks whether there is any node in the BST matching x.
+        - If there is such a node, then it will return the value contained in the node matching x. 
+        - Otherwise (if there is not any node matching x), it will check  whether x is within the boundaries of the BST as follows: 
+        - If x is smaller than minimum element in BST, then it returns None and x smallest han all keys in the BST. 
+        - If x is bigger than the biggest element in the BST, then it returns None and x is bigger than all keys in the BST. 
+        - Otherwise, it starts a while-loop conditioned on whether the search for both u and w has not been done. 
+        - It traverses the the BST "in-order" recursively while comparing the visited node (assigned to the variable currentNode) with x, as follows: 
+        - If the visited node is less than x, then it assigns the variable currentNode to the nextNode and 
+            assigns the new currentNode to a new variable u and the search for u stops.
+        - If the visited node is bigger than x, it assigns the currentNode to the new variable w and the search for w stops. 
+     
+    Complexity Analysis:
+        This function would take O(n) time for the worst case.
+
+
+Literature: 
+    [1] Cormen, T. H., Leiserson, C. E., & Rivest, R. L. (2022). Introduction to algorithms. MIT Press ; McGraw-Hill. 
+    [2] Stephens, R. (2019). Essential Algorithms. A Practical Approach to Computer Algorithms Using Python® and C#. Wiley; Canada

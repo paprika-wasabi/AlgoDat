@@ -1,0 +1,18 @@
+//  Copyright 2022
+//  erfahrungen.txt
+//  AlgoDat
+//
+//  Created by Paramie Willmann on 01.05.22.
+//
+"
+af231
+mi84
+pw221
+"
+
+Diese Aufgabe finde ich richtig schwer. Es daurt ja lang als ich gedacht hatte.
+Ich habe mehr als 20 Studen gebraucht um diese Aufgaben komplett zu machen.
+Bei der Recursive-Methode ist nicht einfach zu implementieren.
+Ansonst das Konzept von QuickSort Algorithm habe ich ganz gut verstanden.
+Mit Random-Pivot_Wahl scheint aber schneller als an erster Position bzw. (array[left]).
+aber die Genauigkeit ist weniger als array[left]-Position. Wie im Schaubild dargestellt hat.

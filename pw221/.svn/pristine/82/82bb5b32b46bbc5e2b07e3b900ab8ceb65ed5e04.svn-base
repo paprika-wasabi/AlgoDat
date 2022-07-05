@@ -1,0 +1,95 @@
+Korrektur Übungsblatt 4
+=======================
+
+Aufgabe 4.1
+-----------
+keine Kollisionsauflösung (-2)
+kleiner Tipp: wenn schon unittests gegeben sind und die bei euch fehlschlagen,
+liegt das meistens daran, dass an eurem Code was nicht stimmt.
+Die einfach Löschen ist nicht die Lösung
+(a) (3/5)
+keine Diskussion der Werte (-2)
+ihr habt für alle 4 Varianten lineare Laufzeit, da ihr die Kollisionsauflösung nicht
+macht. Wenn man die machen würde hätte man für lineares Sondieren lineare
+Laufzeit im worst case.
+(b) (3/5)
+6/10
+
+
+Aufgabe 4.2
+-----------
+| # Answer to Task 2 letter a
+| 
+| Description of the Algorithm:
+| The algorithm takes as input an array A of length n. It goes through an index-loop i from 1 up to n - 1. 
+| For each i in that loop, it goes through another index-loop j from 0 up to i - 1. 
+| For each A[i] and A[j], it reads their corresponding value and subtract A[i] - A[j]. 
+| This operation yields its result as an absolute value. Finally, it compares whether that result is an element of that array A. 
+| 
+| Analysis of the Algorithm:
+| Since this algorithm has three loops, and each of them has a running time of O(n), then the whole algorithm's running time will be O(n^3).  
+
+ihr hat beschrieben, was jede Zeile des Algorithmus macht, aber keine intuition,
+was tatsächlich berechnet wird (-0.5) 
+
+| # Answer to Task 2 letter b 
+| 
+| The relevant problem in this context might be summarized as follows: given an array A of length n, check whether the difference between an element in index-position i (beginning at 0 up to n-1 position) and an element in index-position j (beginning at 0 up to i-1, i.e. always an element prior to the element in i), is already in any position k (ranging from 0 up to n-1) of A. Call this algorithm (as described in task 2 and summarized here) algorithm A (for short ALG-A)
+| 
+| An alternative algorithm to ALG-A for the same problem using the hashing technique may be described as follows, call it Algorithm B (for short AGL-B): 
+| 
+|  ht = HashTable(n)
+|     for i in range(1, n):
+|         for j in range(0, i - 1):
+|             ht.insert(arr[i] - arr[j])
+|     for i in range(n):
+|         if ht.find(arr[i]) is True:
+|             print(True)
+|         else:
+|             print(False)
+| 
+| ALG-B carries out all the subtractions between an element in index-position i and an element in index-position j (as above-described). 
+| Immediately after each subtraction, it stores the result as a kex in a Hashtable. 
+| To check whether a stored result is in the array, the algorithm performs a find-query through all keys in the Hashtable. 
+| If this check is positive, it prints true; otherwise, false.
+| 
+| Running Time of ALG-B: 
+| The running time of ALG-B is O(n^2 + n), since it has one for-loop within another for-loop (n^2) plus an independent for-loop (n). 
+
+O(n^2 + n) = O(n^2) hätt man vereinfachen können.
+
+
+| # Answer to Task 2 letter c
+| 
+| Now, an approach to make ALG-A run in a time of O(n^2 log n) without using
+the hashing technique is to eliminate the third for-loop at line 3 (in the
+pseudocode as described in task 2) and use a memonization method or checking 
+directly whether the result of the above-mentioned subtraction is in array A.  
+
+Nein.
+
+(a) (2.5/3)
+(b) (3/3)
+(c) (0/4)
+5.5/10
+
+
+Anmerkungen
+-----------
+Bei Fragen zur Korrektur dürft ihr mir gerne eine Mail schreiben:
+<pollittf@informatik.uni-freiburg.de>
+Bei allgemeinen Fragen zu Übungsblättern und Vorlesung benutzt bitte das zulip Forum
+
+Beachtet bitte die Richtlinien zur Abgabe der Übungsblätter auf der Vorlesungswebsite
+<https://ac.informatik.uni-freiburg.de/teaching/ss_22/ad-lecture.php>
+
+Wenn ihr in einer Gruppe abgebt, schreibt bitte *alle* Kürzel aus eurer Gruppe
+in die erfahrungen.txt oder anderweitig gut ersichtlich in eure Abgabe
+
+Bei Programmieraufgaben achtet bitte auf die im Übungsblatt angegebenen
+Dateinamen. Das erleichtert meine Korrektur.
+
+
+Gesamtpunktzahl
+---------------
+11.5/20

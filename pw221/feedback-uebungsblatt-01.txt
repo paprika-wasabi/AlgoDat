@@ -1,0 +1,59 @@
+Korrektur Übungsblatt 1
+=======================
+
+Aufgabe 1.1
+-----------
+5/5
+
+
+Aufgabe 1.2
+-----------
+Es fehlen die Graphen für zufällige Arrays (-2)
+3/5
+
+
+Aufgabe 1.3
+-----------
+5/5
+
+
+Aufgabe 1.4
+-----------
++---- erfahrungen.txt ---
+| //  Copyright 2022
+| //  erfahrungen.txt
+| //  AlgoDat
+| //
+| //  Created by Paramie Willmann on 01.05.22.
+| //
+| "
+| af231
+| mi84
+| pw221
+| "
+| 
+| Diese Aufgabe finde ich richtig schwer. Es daurt ja lang als ich gedacht hatte.
+| Ich habe mehr als 20 Studen gebraucht um diese Aufgaben komplett zu machen.
+| Bei der Recursive-Methode ist nicht einfach zu implementieren.
+| Ansonst das Konzept von QuickSort Algorithm habe ich ganz gut verstanden.
+| Mit Random-Pivot_Wahl scheint aber schneller als an erster Position bzw. (array[left]).
+| aber die Genauigkeit ist weniger als array[left]-Position. Wie im Schaubild dargestellt hat.
++------------------------
+5/5
+
+
+Anmerkungen
+-----------
+Bei Fragen zur Korrektur dürft ihr mir gerne eine Mail schreiben:
+<pollittf@informatik.uni-freiburg.de>
+Bei allgemeinen Fragen zu Übungsblättern und Vorlesung benutzt bitte das zulip Forum
+
+Beachtet bitte die Richtlinien zur Abgabe der Übungsblätter auf der Vorlesungswebsite
+<https://ac.informatik.uni-freiburg.de/teaching/ss_22/ad-lecture.php>
+
+Schreibt bitte *alle* Kürzel aus eurer Gruppe in die erfahrungen.txt
+
+
+Gesamtpunktzahl
+---------------
+18/20

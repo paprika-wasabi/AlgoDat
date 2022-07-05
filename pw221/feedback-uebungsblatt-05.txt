@@ -1,0 +1,56 @@
+Korrektur Übungsblatt 5
+=======================
+
+Aufgabe 5.1
+-----------
+(a) (0/1.5)
+Falsch. m ist konstant. x ist der Schlüssel. (a) ist schlecht, weil immer m
+aufeinanderfolgende Schlüssel den gleichen hashwert haben.
+(b) (0/1.5)
+stimmt nicht. das Problem ist, dass die Hashfunktion nur negative Werte zurückgeben
+kann. So bleibt die hälfte der Hashtabelle leer.
+(c) (0.5/1.5)
+halb richtig. Für x > m haben wird lineares sondieren, da der zweite Term = 0 ist.
+Das eigentliche Problem ist allerdings, dass h(x) = m für x = m - 1. Die Hashtabelle
+hat aber nur die Positionen 0,..,m-1
+(d) (1.5/1.5)
+korrekt.
+(e) (1.5/2)
+ja, ein problem ist division durch 0. Das andere Problem ist, dass die Hashtabelle
+ungleich gefüllt wird. (siehe musterlösung)
+(f) (2/2)
+richtig. Ausserdem müssen h2 bis hl bijektiv sein, da sonst die Tabelle nicht
+vollständig genutzt wird.
+5.5/10
+
+
+Aufgabe 5.2
+-----------
+(a) (4/4)
+gut.
+(b) (0/6)
+4/10
+
+
+Anmerkungen
+-----------
+Bei Fragen zur Korrektur dürft ihr mir gerne eine Mail schreiben:
+<pollittf@informatik.uni-freiburg.de>
+Bei allgemeinen Fragen zu Übungsblättern und Vorlesung benutzt bitte das zulip Forum
+
+Beachtet bitte die Richtlinien zur Abgabe der Übungsblätter auf der Vorlesungswebsite
+<https://ac.informatik.uni-freiburg.de/teaching/ss_22/ad-lecture.php>
+
+Wenn ihr in einer Gruppe abgebt, schreibt bitte *alle* Kürzel aus eurer Gruppe
+in die erfahrungen.txt oder anderweitig gut ersichtlich in eure Abgabe
+
+Bei Programmieraufgaben achtet bitte auf die im Übungsblatt angegebenen
+Dateinamen. Das erleichtert meine Korrektur.
+
+Bei Theorieaufgaben kann es sein, dass im feedback nur die Punkte eingetragen sind.
+Dann gibt es allfällige Anmerkungen im Unterordner zum entsprechenden Übungsblatt.
+
+
+Gesamtpunktzahl
+---------------
+9.5/20

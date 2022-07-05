@@ -1,0 +1,56 @@
+Korrektur Übungsblatt 8
+=======================
+
+Aufgabe 8.1
+-----------
+keine tests (-1)
+Nicht korrekt. Ihr nehmt immer an, dass 0 die wurzel ist und der dag zusammenhängt.
+Das ist im allgemeinen nicht der fall. (-2)
+ihr müsstet alle wurzeln ausfindig machen und dann für jede wurzel hintereinander
+euer dfs ausführen.
+(a) (5/8)
+(b) (4/4)
+folgefehler
+9/12
+
+
+Aufgabe 8.2
+-----------
+keine tests (-1)
+ihr habt das richtige implementiert, wenn die aufgabenstellung wie in 1 wäre.
+Allerdings darf jetzt ein task ausgeführt werden, sobald einer der tasks von dem
+er abhängt ausgeführt wurde. Dadurch können die meisten tasks deutlich früher
+ausgeführt werden. Im prinizip muss man jeweils nur den kürzesten weg von einer
+beliebigen wurzel zum task finden. (-1)
+(a) (4/6)
+(b) (2/2)
+folgefehler
+6/8
+
++---- ../gruppe.txt ---
+| af231 mi84 pw221
++----------------------
+
+
+Anmerkungen
+-----------
+Bei Fragen zur Korrektur dürft ihr mir gerne eine Mail schreiben:
+<pollittf@informatik.uni-freiburg.de>
+Bei allgemeinen Fragen zu Übungsblättern und Vorlesung benutzt bitte das zulip Forum
+
+Beachtet bitte die Richtlinien zur Abgabe der Übungsblätter auf der Vorlesungswebsite
+<https://ac.informatik.uni-freiburg.de/teaching/ss_22/ad-lecture.php>
+
+Wenn ihr in einer Gruppe abgebt, schreibt bitte *alle* Kürzel aus eurer Gruppe
+in die erfahrungen.txt oder anderweitig gut ersichtlich in eure Abgabe
+
+Bei Programmieraufgaben achtet bitte auf die im Übungsblatt angegebenen
+Dateinamen. Das erleichtert meine Korrektur.
+
+Bei Theorieaufgaben kann es sein, dass im feedback nur die Punkte eingetragen sind.
+Dann gibt es allfällige Anmerkungen im Unterordner zum entsprechenden Übungsblatt.
+
+
+Gesamtpunktzahl
+---------------
+15/20

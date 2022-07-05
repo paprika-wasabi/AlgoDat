@@ -1,0 +1,48 @@
+Version (1)
+Proof by contradiction.
+
+Assumptions: 
+(1) G has a unique light edge, call it (u,v) 
+(2) W.l.o.G., there is a cut (S, V\S) in G. The edge (u,v) the maximally light (a.k.a. lightest) edge of the cut (S, V\S) in G.
+ 
+Let then T be G's MST. 
+
+Let T' be  a set containing (u,v).
+Let (u,v) ∈ T'. 
+
+Let T' be a set containing (u,v) (i.e. (u,v) ∈ T')
+
+
+Since T spans G, T must have a unique path from any edge to any other edge.
+
+Let P the set containing all edges in the path connecting S and V\S.
+
+If (u,v) ∉ P, then w((u,v)) < w((x,y)) (for any (x,y) ∈ P). In this case, the spanning tree
+(T \{(xi,yi)})∪{(u,v)}) would weight less than T. This contradicts the assumption that T is an MST. (i in x an y are subcripted)
+
+Therefore (u,v) must be contained in T.  ☐
+
+
+Version(2)
+
+Proof by contradiction.
+
+Let T and T’ be two minimum spanning trees which differ by at least one edge.
+
+Let this edge be (u, v). Therefore, edge (u, v) is an element of T, but not an element of T’
+
+Let (u, v) cross some arbitrary cut S and V\S in G.
+
+Since (u, v) is not an element of T’, there exists another element of T’, mainly (x, y) which crosses some cut in G.
+
+Now suppose either (u, v) or (x, y) is the light edge crossing the cut.
+
+Assumption: Let (u, v) be the light edge.
+
+Since (u, v) is not an element of T’, there exists some path in T’ from u to v. This path must cross the cut somewhere at (x, y).
+
+Since (u, v) is a unique minimum edge, weight (x, y) > (u, v)
+
+Therefore, cut (x, y) from T’ and add (u, v) to reduce the weight of the tree.
+
+Therefore T’ was not the minimum spanning tree.

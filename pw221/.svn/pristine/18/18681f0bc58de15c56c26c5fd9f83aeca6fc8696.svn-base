@@ -1,0 +1,92 @@
+University of Freiburg 
+Summer Semester 2022 
+Course: Algorithms and Datastructures 
+Exercise Sheet 05
+Groupmembers: af231 (Andrés Fernández Lebrón), mi84, pw221 (Paramie Willmann)
+
+### Erfahrungen (Experiences)
+
+Instructions: The functions are bad choices. Explain why that is the case. 
+
+(Discussion) 
+What is it for a hash function to be suitable (good) b.t.w.?
+For a hash function to be suitable (or for that matter "good") it is for it, inter alia, to attain a probability distribution. 
+
+Pr(h(k1)= h(k2)) = 1/m
+
+The following is from is from so sparknotes so take it with a pinch of suspicion:
+Characteristics of a Good Hash Function 
+There are four main characteristics of a good hash function: 
+    1) The hash value is fully determined by the data being hashed. 
+    2) The hash function uses all the input data. 
+    3) The hash function "uniformly" distributes the data across the entire set of possible hash values. 
+    4) The hash function generates very different hash values for similar strings. 
+
+(End of Discussion)
+
+(Note: all mathematical notation is based on python.)
+
+# Task 1
+## (a)
+
+    As m increases, the value of the function will yield the same result, namely: 0. Thus, increasing the probability of keys having the same value.  
+
+## (b)
+
+    As long as x >= (m-1)/2, the probability of collision is almost certain. Thus, making this function not suitable (good).
+
+## (c)
+
+    The value of the function will repeat itself periodically. This repetition renders the function unsuitable. 
+
+## (d)
+
+    The main problem of this function is the consistency. We want our hash function to give the same result for a given x every time, which this function would fail to do.
+
+## (e)
+
+    1. Similar to (c), this function has the probability of x/0.
+    3. The division method consists in just one modular division, so that it is not clear why does the hash function have another modular division. 
+    2. The chosen prime number is not assigned to m. That goes against the recommendation for choosing m as a prime number. 
+
+
+## (f)
+    The ideal purpose of hashing is to reduce our asymptotic complexity to O(1), or in practice something close to it. By using this function we are increasing our time complexity, and therefore undermining our original purpose for using hashing.
+
+# Task 2 
+## (a) 
+
+In order to show that H1 is not a c-universal it must shown that H1 does not comply with
+the conditions of c-universality, namely: 
+
+    for any x and k, where x != y, it holds that |{h e H : h(x) = h(y)}| =< c/m |H|
+
+To show this, it must be shown that the ratio (i.e. probability) of collision for two keys (say x and y)
+is greater then c/m. Thus it should be shown (1) a collision and (2) that that collision's probability is equal or greater that c/m
+
+(1) Collision of h(x) and h(y)
+    Let be x and y = x + m.
+    h(x) = a * x**2 % m 
+
+    h(y) = a * (x + m)**2 % m
+        = (a * x ** 2 + 2 x*m*a + a* m **2 )% m
+        
+        = (a * x ** 2) % m + (2 x*m*a) % m + (a* m **2 ) % m
+
+        = (a * x ** 2) % m + 0 + 0
+
+    Pr (h(x) == h(y)) = 1 / 1 
+
+
+(2) Collision's probability >= c/m
+    
+    The probability parameter for a c-universal family of hash functions is c/m |H|. This may be simplified as
+    c/m, since ((c/m) * (1/|H|)) = c/m. 
+    Let be c = 3 (because it could be greater than 1) and m = 11. 
+    Thus if c/m, then 3/11. 
+    Now, Pr (h(x) == h(y)) = 1 / 1  
+    Since 1 / 1 is greater than 3/11, the probability requirement does not hold. 
+    Therefore, H1 does not comply with the condition of c-universality. 
+
+## (b)
+    n.a.
